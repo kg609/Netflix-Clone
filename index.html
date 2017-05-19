@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Netflix Clone</title>
+		<meta charset="utf-8">
+		<style>
+
+		* {
+			box-sizing: border-box;
+
+		}
+			#header {
+				background: black;
+				color: white;
+				overflow: auto;
+				padding-left: 25px;
+				padding-right: 25px;
+
+			}
+
+			#header a {
+				font-family: helvetica;
+				text-decoration: none;
+			}
+
+			.logo {
+				float: left;
+				display: inline-block;
+				background: red;
+				margin-right: 25px;
+			}
+
+			.leftMenu {
+				float: left;
+				display: inline-block;
+			}
+
+			.leftMenu ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.leftMenu ul li {
+				display: inline-block;
+				padding: 20px;
+			}
+
+			.leftMenu ul li a {
+				color: white;
+			}
+
+			.leftMenu ul li a.dropdown {
+				color: red;
+			}
+
+
+			.rightMenu {
+				float: right;
+				display: inline-block;
+				color: black;
+			}
+
+
+			.rightMenu ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.rightMenu ul li {
+				display: inline-block;
+				padding: 20px;
+			}
+
+			.rightMenu ul li a {
+				color: white;
+			}
+
+			.leftMenu ul li a:hover, .rightMenu ul li a:hover {
+				color: red;
+			}
+
+			#largeImage {
+				padding: 200px 25px;
+			  background:  url(http://pop-critica.com/wp-content/uploads/2015/02/netflix-daredevil-series-motion-poster-022615-feat.png) no-repeat left center; 
+			  -webkit-background-size: cover;
+			  -moz-background-size: cover;
+			  -o-background-size: cover;
+			  background-size: cover;
+			}
+
+			.description-box {
+				width: 50%
+			}
+
+			.description-box h1 {
+				font-family: serif;
+				font-weight: 700;
+				font-size: 60px;
+				margin: 0;
+				color: white;
+			}
+
+			.description-box h3 {
+				font-family: helvetica;
+				font-weight: 400;
+				font-size: 25px;
+				margin: 0;
+				color: white;
+			}
+
+			.description-box h4 {
+				font-family: helvetica;
+				font-weight: 300;
+				margin: 0;
+				color: white;
+			}
+
+			.description-box p {
+				margin: 25px 0 0 0;
+				font-family: helvetica;
+				font-weight: 100;
+				font-size: 18px
+				margin:0;
+				color: white;
+			}
+
+			.button1 {
+				display: inline-block;
+				padding: 12px 20px;
+				background: #000;
+				color: #fff;
+				cursor: pointer;
+			}
+
+			.button1:hover{
+				background: rgba(234, 31, 16, .6);
+			}
+
+			.button2:hover {
+				background: rgba(0, 0, 0, .6);
+				border: 2px solid rgba(0, 0, 0, .6);
+			}
+
+			.button2 {
+				display: inline-block;
+				padding: 10px 18px;
+				border: 2px solid #000;
+				color: #fff;
+				cursor: pointer;
+			}
+
+			#videoSection {
+				width: 100%;
+				background: black;
+			}
+
+			.row {
+				font-size: 0;
+				width: 100%;
+			}
+
+			.videoBoxes {
+				display: inline-block;
+				background: red;
+				width: 300px;
+				min-height: 150px;
+				font-size: 16px;
+				margin: 2.5%;
+				padding: 15px;
+			}
+
+			.videoBoxes h4 {
+				font-family: helvetica;
+				font-weight: 100;
+				margin: 0;
+				padding: 0;
+				color: red;
+				font-size: 20px;
+
+			}
+
+			.videoBoxes p {
+				display: none;
+			}
+
+			.video1 {
+				background: url(http://www.dahoovsplace.com/MovieCollectibles/Posters/MoviePosters/FastFivePoster1.jpg) no-repeat center center; 
+			    -webkit-background-size: cover;
+			    -moz-background-size: cover;
+			    -o-background-size: cover;
+			    background-size: cover;
+			}
+
+			.video2 {
+				background: url(http://www.impawards.com/2014/posters/interstellar_ver7.jpg) no-repeat center center; 
+			    -webkit-background-size: cover;
+			    -moz-background-size: cover;
+			    -o-background-size: cover;
+			    background-size: cover;
+			}
+
+			.video3 {
+				background: url(https://s-media-cache-ak0.pinimg.com/originals/35/5d/65/355d65da2e1dc28b3399951765bc5fb1.jpg) no-repeat left center; 
+			    -webkit-background-size: cover;
+			    -moz-background-size: cover;
+			    -o-background-size: cover;
+			    background-size: cover;
+			}
+
+			.video4 {
+				background: url(https://theknackinitiative.files.wordpress.com/2014/03/bane-batman-standoff-the-dark-knight-rises-wall-poster1.jpg) no-repeat left center; 
+			    -webkit-background-size: cover;
+			    -moz-background-size: cover;
+			    -o-background-size: cover;
+			    background-size: cover;
+			}
+
+			.video5 {
+				background: url(http://www.mrmovie-review.com/wp-content/uploads/2015/04/mad-max-fury-road-banner-poster-2.jpg) no-repeat center center; 
+			    -webkit-background-size: cover;
+			    -moz-background-size: cover;
+			    -o-background-size: cover;
+			    background-size: cover;
+			}
+
+			/* For Mobile */
+			@media only screen and (max-width: 600px) {
+				.videoBoxes {
+					width: 95%;
+					margin: 2.5%;
+				}
+
+				.videoBoxes h4 {
+					font-family: helvetica;
+					font-weight: 100;
+					font-size: 40px;
+				}
+
+				.videoBoxes p {
+					display: block;
+					font-family: helvetica;
+					font-weight: 300;
+					font-size: 20px;
+					color: red;
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<div class="logo"> Netflix </div>
+			<div class="leftMenu"> left menu 
+				<ul>
+					<li >
+						<a href="#" class="dropdown">Browse</a>
+					</li>
+					<li>
+						<a href="#">Kids</a>
+					</li>
+					<li>
+						<a href="#">DVD</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="rightMenu"> right menu 
+				<ul>
+					<li>
+						<a href="#">Search</a>
+					</li>
+					<li>
+						<a href="#">Bell</a>
+					</li>
+					<li>
+						<a href="#">Username</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id ="largeImage">
+
+			<div class="description-box">
+			<h4> Netflix Presents </h4>
+			<h1> DareDevil </h1>
+			<h3> Coming April 15th </h3>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+
+			<div class="button1"> Button 1 </div>
+			<div class="button2"> Button 2 </div>
+		</div>
+
+		<div id="videoSection">
+			<div class="row">
+				<div class="videoBoxes video1">
+					<h4> Fast Five </h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+				<div class="videoBoxes video2">
+					<h4> InterStellar </h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+				<div class="videoBoxes video3">
+					<h4> Pacific Rim</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+				<div class="videoBoxes video4">
+					<h4> The Dark Knight </h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+				<div class="videoBoxes video5">
+					<h4> Mad Max</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>
